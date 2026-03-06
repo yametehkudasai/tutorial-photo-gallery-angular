@@ -1,2 +1,32 @@
-<ion-content [fullscreen]="true">
+<ion-content>
+
+  <ion-list>
+
+    <ion-item *ngFor="let item of menuList">
+
+      <ion-label>
+        <h2>{{item.ItemName}}</h2>
+        <p>RM {{item.Price}}</p>
+      </ion-label>
+
+      <ion-button (click)="edit(item.MenuId)">
+        Edit
+      </ion-button>
+
+    </ion-item>
+
+  </ion-list>
+
+  <ion-item>
+    <ion-input [(ngModel)]="menu.ItemName" placeholder="Item Name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input [(ngModel)]="menu.Price" type="number"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="updateMenu()">
+    Update Menu
+  </ion-button>
+
 </ion-content>
